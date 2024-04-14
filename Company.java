@@ -11,9 +11,17 @@ public class Company {
         employees[4] = new Worker("Łukasz Nowak", 60000);
 
         
-        System.out.println("Dane pracownika o indeksie 3: " + employees[3]);
+        int notManager = 0;
+        for (Employee employee : employees) {
+            if (!(employee instanceof Manager)) {
+                notManager++;
+            }
+        }
 
-        employees[3].setSalary(50000);
+        Manager manager = (Manager) employees[0];
+        manager.setNumberOfSubordinates(notManager);
+
+        employees[0].setSalary(7500);
 
         for (Employee employee : employees) {
             System.out.println(employee);;
